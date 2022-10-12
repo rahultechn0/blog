@@ -435,7 +435,7 @@
             <div class="col-lg-4 col-md-6 col-sm-9">
                 <div class="blog__post__item">
                     <div class="blog__post__thumb">
-                        <a href="{{ route('blog.detail',$blog->id) }}"><img src="{{ asset('upload/blog/'.$blog->image) }}" alt="img"></a>
+                        <a href="{{ route('blog.detail',$blog->id) }}"><img src="{{ asset($blog->image) }}" alt="img"></a>
                         <div class="blog__post__tags">
                             <a href="blog.html">{{ $blog->blogCategory->blog_cate }}</a>
                         </div>

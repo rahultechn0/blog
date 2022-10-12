@@ -42,7 +42,7 @@
                 <div class="col-lg-8">
                     <div class="standard__blog__post">
                         <div class="standard__blog__thumb">
-                            <img src="{{ asset('upload/blog/'.$blogDetails->image) }}" alt="">
+                            <img src="{{ asset($blogDetails->image) }}" alt="">
                         </div>
                         <div class="blog__details__content services__details__content">
                             <ul class="blog__post__meta">
@@ -212,7 +212,7 @@
 
                                 <li class="rc__post__item">
                                     <div class="rc__post__thumb">
-                                        <a href="blog-details.html"><img src="{{ asset('upload/blog/'.$blog->image) }}" alt=""></a>
+                                        <a href="blog-details.html"><img src="{{ asset($blog->image) }}" alt=""></a>
                                     </div>
                                     <div class="rc__post__content">
                                         <h5 class="title"><a href="blog-details.html">{{ $blog->title }}</a></h5>

@@ -23,38 +23,44 @@
     <body class="auth-body-bg">
         <div class="bg-overlay"></div>
         <div class="wrapper-page">
-            <div class="container-fluid p-0">
+            <div class="p-0 container-fluid">
                 <div class="card">
                     <div class="card-body">
 
-                        <div class="text-center mt-4">
+                        <div class="mt-4 text-center">
                             <div class="mb-3">
                                 <a href="index.html" class="auth-logo">
-                                    <img src="{{ asset('backend/assets/images/logo-dark.png') }}" height="30" class="logo-dark mx-auto" alt="">
-                                    <img src="{{ asset('backend/assets/images/logo-light.png') }}" height="30" class="logo-light mx-auto" alt="">
+                                    <img src="{{ asset('backend/assets/images/logo-dark.png') }}" height="30" class="mx-auto logo-dark" alt="">
+                                    <img src="{{ asset('backend/assets/images/logo-light.png') }}" height="30" class="mx-auto logo-light" alt="">
                                 </a>
                             </div>
                         </div>
 
-                        <h4 class="text-muted text-center font-size-18"><b>Sign In</b></h4>
+                        <h4 class="text-center text-muted font-size-18"><b>Sign In</b></h4>
 
                         <div class="p-3">
-                                <form  class="form-horizontal mt-3" method="POST" action="{{ route('login') }}">
+                                <form  class="mt-3 form-horizontal" method="POST" action="{{ route('login') }}">
                                     @csrf
 
-                                <div class="form-group mb-3 row">
+                                <div class="mb-3 form-group row">
                                     <div class="col-12">
-                                        <input class="form-control" id="username" type="text" name="username" required="" placeholder="Username">
+                                        <input class="form-control" id="username" type="text" name="username" placeholder="Username" value="{{ old('username') }}">
+                                        @error('username')
+                                            <span class="text-danger"> {{ $message }} </span>
+                                        @enderror
                                     </div>
                                 </div>
 
-                                <div class="form-group mb-3 row">
+                                <div class="mb-3 form-group row">
                                     <div class="col-12">
-                                        <input class="form-control" id="password" type="password" name="password"  required="" placeholder="Password">
+                                        <input class="form-control" id="password" type="password" name="password"  placeholder="Password">
+                                        @error('password')
+                                            <span class="text-danger"> {{ $message }} </span>
+                                        @enderror
                                     </div>
                                 </div>
 
-                                <div class="form-group mb-3 row">
+                                <div class="mb-3 form-group row">
                                     <div class="col-12">
                                         <div class="custom-control custom-checkbox">
                                             <input type="checkbox" class="custom-control-input" id="customCheck1">
@@ -63,17 +69,17 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group mb-3 text-center row mt-3 pt-1">
+                                <div class="pt-1 mt-3 mb-3 text-center form-group row">
                                     <div class="col-12">
                                         <button class="btn btn-info w-100 waves-effect waves-light" type="submit">Log In</button>
                                     </div>
                                 </div>
 
-                                <div class="form-group mb-0 row mt-2">
-                                    <div class="col-sm-7 mt-3">
+                                <div class="mt-2 mb-0 form-group row">
+                                    <div class="mt-3 col-sm-7">
                                         <a href="{{ route('password.request') }}" class="text-muted"><i class="mdi mdi-lock"></i> Forgot your password?</a>
                                     </div>
-                                    <div class="col-sm-5 mt-3">
+                                    <div class="mt-3 col-sm-5">
                                         <a href="{{ route('register') }}" class="text-muted"><i class="mdi mdi-account-circle"></i> Create an account</a>
                                     </div>
                                 </div>

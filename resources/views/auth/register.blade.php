@@ -23,63 +23,78 @@
     <body class="auth-body-bg">
         <div class="bg-overlay"></div>
         <div class="wrapper-page">
-            <div class="container-fluid p-0">
+            <div class="p-0 container-fluid">
                 <div class="card">
                     <div class="card-body">
 
-                        <div class="text-center mt-4">
+                        <div class="mt-4 text-center">
                             <div class="mb-3">
                                 <a href="index.html" class="auth-logo">
-                                    <img src="{{asset('backend/assets/images/logo-dark.png')}}" height="30" class="logo-dark mx-auto" alt="">
-                                    <img src="{{asset('backend/assets/images/logo-light.png')}}" height="30" class="logo-light mx-auto" alt="">
+                                    <img src="{{asset('backend/assets/images/logo-dark.png')}}" height="30" class="mx-auto logo-dark" alt="">
+                                    <img src="{{asset('backend/assets/images/logo-light.png')}}" height="30" class="mx-auto logo-light" alt="">
                                 </a>
                             </div>
                         </div>
 
-                        <h4 class="text-muted text-center font-size-18"><b>Register</b></h4>
+                        <h4 class="text-center text-muted font-size-18"><b>Register</b></h4>
 
                         <div class="p-3">
-                                <form class="form-horizontal mt-3"  method="POST" action="{{ route('register') }}">
+                                <form class="mt-3 form-horizontal"  method="POST" action="{{ route('register') }}">
                                     @csrf
 
-                                <div class="form-group mb-3 row">
+                                <div class="mb-3 form-group row">
                                     <div class="col-12">
-                                        <input class="form-control" type="text" name="name" id="name" required="" placeholder="Name">
+                                        <input class="form-control" type="text" name="name" id="name"  placeholder="Name" value="{{ old('name') }}">
+                                        @error('name')
+                                        <span class="text-danger"> {{ $message }} </span>
+                                    @enderror
                                     </div>
                                 </div>
 
-                                <div class="form-group mb-3 row">
+                                <div class="mb-3 form-group row">
                                     <div class="col-12">
-                                        <input class="form-control" type="text" name="username" id="username" required="" placeholder="Username">
+                                        <input class="form-control" type="text" name="username" id="username"  placeholder="Username" value="{{ old('username') }}">
+                                        @error('username')
+                                        <span class="text-danger"> {{ $message }} </span>
+                                    @enderror
                                     </div>
                                 </div>
 
-                                <div class="form-group mb-3 row">
+                                <div class="mb-3 form-group row">
                                     <div class="col-12">
-                                        <input class="form-control" type="email" name="email" id="email" required="" placeholder="Email">
+                                        <input class="form-control" type="email" name="email" id="email"  placeholder="Email" value="{{ old('email') }}">
+                                        @error('email')
+                                        <span class="text-danger"> {{ $message }} </span>
+                                    @enderror
                                     </div>
                                 </div>
 
-                                <div class="form-group mb-3 row">
+                                <div class="mb-3 form-group row">
                                     <div class="col-12">
-                                        <input class="form-control" type="password" name="password" id="password" required="" placeholder="Password">
+                                        <input class="form-control" type="password" name="password" id="password" placeholder="Password" value="{{ old('password') }}">
+                                        @error('password')
+                                        <span class="text-danger"> {{ $message }} </span>
+                                    @enderror
                                     </div>
                                 </div>
 
-                                <div class="form-group mb-3 row">
+                                <div class="mb-3 form-group row">
                                     <div class="col-12">
-                                        <input class="form-control" type="password" name="password_confirmation" id="password_confirmation" required="" placeholder="Confirm password">
+                                        <input class="form-control" type="password" name="password_confirmation" id="password_confirmation"  placeholder="Confirm password">
+                                        @error('password_confirmation')
+                                        <span class="text-danger"> {{ $message }} </span>
+                                        @enderror
                                     </div>
                                 </div>
 
-                                <div class="form-group text-center row mt-3 pt-1">
+                                <div class="pt-1 mt-3 text-center form-group row">
                                     <div class="col-12">
                                         <button class="btn btn-info w-100 waves-effect waves-light" type="submit">Register</button>
                                     </div>
                                 </div>
 
-                                <div class="form-group mt-2 mb-0 row">
-                                    <div class="col-12 mt-3 text-center">
+                                <div class="mt-2 mb-0 form-group row">
+                                    <div class="mt-3 text-center col-12">
                                         <a href="{{ route('login') }}" class="text-muted">Already have account?</a>
                                     </div>
                                 </div>

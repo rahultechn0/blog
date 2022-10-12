@@ -43,7 +43,7 @@
                     @forelse ($blogs as $blog )
                     <div class="standard__blog__post">
                         <div class="standard__blog__thumb">
-                            <a href="blog-details.html"><img src="{{ asset('upload/blog/'.$blog->image) }}" alt="img"></a>
+                            <a href="blog-details.html"><img src="{{ asset($blog->image) }}" alt="img"></a>
                             <a href="blog-details.html" class="blog__link"><i class="far fa-long-arrow-right"></i></a>
                         </div>
                         <div class="standard__blog__content">
@@ -93,7 +93,7 @@
 
                                 <li class="rc__post__item">
                                     <div class="rc__post__thumb">
-                                        <a href="blog-details.html"><img src="{{ asset('upload/blog/'.$item->image) }}" alt=""></a>
+                                        <a href="blog-details.html"><img src="{{ asset($item->image) }}" alt=""></a>
                                     </div>
                                     <div class="rc__post__content">
                                         <h5 class="title"><a href="blog-details.html">{{ $item->title }}.</a></h5>
